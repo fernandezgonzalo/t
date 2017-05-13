@@ -23,11 +23,4 @@ class Task(Base):
 
 
 db.connect()
-
-
-def create_tables():
-    db.create_tables([Task], safe=True)
-
-
-if __name__ == '__main__':
-    create_tables()
+db.create_tables([Task], safe=True)
