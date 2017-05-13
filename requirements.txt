@@ -1,3 +1,2 @@
 peewee
 tabulate
-humanize
