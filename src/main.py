@@ -10,12 +10,12 @@ def parse_arguments():
     list_parser = subparsers.add_parser('l', help='List tasks')
 
     add_parser = subparsers.add_parser('a', help='Add tasks')
-    add_parser.add_argument('desc')
+    add_parser.add_argument('desc', nargs='+')
     add_parser.add_argument('-p', type=int, default=0)
 
     edit_parser = subparsers.add_parser('e', help='Edit tasks')
     edit_parser.add_argument('id', type=int)
-    edit_parser.add_argument('desc')
+    edit_parser.add_argument('desc', nargs='+')
 
     remove_parser = subparsers.add_parser('r', help='Remove tasks')
     remove_parser.add_argument('id', type=int)
@@ -52,14 +52,18 @@ def remove_task(task_id):
     except Task.DoesNotExist:
         print("Task id doesnt exist")
 
+def parse_desc(list_words):
+    return ' '.join(list_words)
+
 
 if __name__ == '__main__':
     arguments = parse_arguments()
+    print(arguments)
 
     if arguments.command == 'a':
-        add_task(arguments.desc, arguments.p)
+        add_task(parse_desc(arguments.desc), arguments.p)
     elif arguments.command == 'e':
-        edit_task(arguments.id, arguments.desc)
+        edit_task(arguments.id, parse_desc(arguments.desc))
     elif arguments.command == 'l' or arguments.command is None:
         list_task()
     elif arguments.command == 'r':

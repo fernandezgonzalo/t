@@ -12,13 +12,13 @@ micro task manager, ispired by [http://stevelosh.com/projects/t/](http://stevelo
 
 ### Add new Task
 ```
-$ t a "Buy potatoes"
+$ t a Buy potatoes
 
 ```
 
 or if you want to specify a priority, for default priority is 0
 ```
-$ t a "Buy potatoes" -p NUM
+$ t a Buy potatoes -p NUM
 ```
 
 ### List tasks, ordered by priority
@@ -35,7 +35,7 @@ $ t l
 
 ### Edit task
 ```
-$ t e ID "text"
+$ t e ID text
 ```
 
 ### Remove task
