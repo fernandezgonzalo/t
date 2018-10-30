@@ -52,6 +52,7 @@ def remove_task(task_id):
     except Task.DoesNotExist:
         print("Task id doesnt exist")
 
+
 def parse_desc(list_words):
     return ' '.join(list_words)
 
